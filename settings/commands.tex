@@ -1,0 +1,42 @@
+% Quantities
+\newcommand{\inR}{\in\mathbb{R}}
+\newcommand{\inC}{\in\mathbb{C}}
+\newcommand{\inZ}{\in\mathbb{Z}}
+\newcommand{\inN}{\in\mathbb{N}}
+\newcommand{\inQ}{\in\mathbb{Q}}
+
+% Vector and Matrix
+\newcommand{\bmat}[1]{\begin{bmatrix}#1\end{bmatrix}}
+\newcommand{\bvec}[1]{\begin{pmatrix}#1\end{pmatrix}}
+
+% Titlepage
+\newcommand{\titpage}[3]{
+    \fancyhead[L]{#1}
+    \fancyhead[R]{#3}
+
+    \begin{titlepage}
+        \begin{center}
+            \vspace{2cm}
+
+            \includegraphics[height=0.4\textheight]{pictures/DTU_Logo_Klods.png}
+            \vspace{2cm}
+
+            \vspace{2cm}
+
+            \hrule
+            \vspace{.5cm}
+            {\huge \bfseries #1}
+            \vspace{.5cm}
+            \hrule
+
+            \vspace{1.5cm}
+
+            \textsc{\textbf{Authors}}
+            \vspace{.5 cm}
+            \begin{center}
+                #2 \\
+            \end{center}
+
+        \end{center}
+    \end{titlepage}
+}
