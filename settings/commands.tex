@@ -40,3 +40,54 @@
         \end{center}
     \end{titlepage}
 }
+
+\newcounter{countitems}
+\newcounter{nextitemizecount}
+\newcommand{\setupcountitems}{%
+  \stepcounter{nextitemizecount}%
+  \setcounter{countitems}{0}%
+  \preto\item{\stepcounter{countitems}}%
+}
+\makeatletter
+\newcommand{\computecountitems}{%
+  \edef\@currentlabel{\number\c@countitems}%
+  \label{countitems@\number\numexpr\value{nextitemizecount}-1\relax}%
+}
+\newcommand{\nextitemizecount}{%
+  \getrefnumber{countitems@\number\c@nextitemizecount}%
+}
+\newcommand{\previtemizecount}{%
+  \getrefnumber{countitems@\number\numexpr\value{nextitemizecount}-1\relax}%
+}
+\makeatother    
+\newenvironment{AutoMultiColItemize}{%
+\ifnumcomp{\nextitemizecount}{>}{3}{\begin{multicols}{2}}{}%
+\setupcountitems\begin{itemize}}%
+{\end{itemize}%
+\unskip\computecountitems\ifnumcomp{\previtemizecount}{>}{3}{\end{multicols}}{}}
+
+\newcommand{\Dt}[1]{
+    \frac{\text{D} #1}{\text{D} t}
+}
+\newcommand{\dt}[1]{
+    \frac{\text{d} #1}{\text{d} t}
+}
+\newcommand{\partt}[1]{
+    \frac{\partial #1}{\partial t}
+}
+% SYMBOLS
+\newcommand{\freq}[0]{\mathfrak{f}}
+
+% UNITS
+\newcommand{\Pa}[0]{\text{Pa}}
+\newcommand{\m}[0]{\text{m}}
+\newcommand{\W}[0]{\text{Watt}}
+\newcommand{\Hz}[0]{\text{Hz}}
+\newcommand{\kg}[0]{\text{kg}}
+\newcommand{\s}[0]{\text{s}}
+
+% MATH
+\newcommand{\e}[1]{\cdot 10^{#1}}
+\newcommand{\eye}[0]{\mathbf{I}}
+\newcommand{\dev}[0]{\text{d}}
+\newcommand{\pati}[2]{\frac{\partial #1}{\partial #2}}

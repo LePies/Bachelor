@@ -1,0 +1,104 @@
+\documentclass[main.tex]{subfiles}
+\graphicspath{{\subfix{../pictures/}}}
+\begin{document}
+\subsection{Fluid Dynamics}
+\subsubsection{Stress Tensor}
+Constitutive equation:
+\begin{equation}
+    \tau = \eta(\nabla v + (\nabla v)^\top)) - \frac{2}{3}\eta(\nabla\cdot v)\eye
+    \label{eq:tau}
+\end{equation}
+
+\subsubsection{Mass conservation (Bernoulli)}
+\begin{equation}
+    \partt{\rho} + \nabla \cdot (\rho v) = \dot{m}
+    \label{eq:bernoulli}
+\end{equation}
+
+Derivation
+We have the density is of a particle:
+$$\rho = \frac{\Delta m}{\Delta V}$$
+
+Now to get the density at a point we take the limit:
+\begin{align*}
+    \rho = \lim_{\Delta V \to 0}\frac{\Delta m}{\Delta V} = \frac{\dev m}{\dev V}
+\end{align*}
+Hence we have the following:
+\begin{align*}
+    m = \int_V \rho \;\dev V
+\end{align*}
+And from this, we can apply the following:
+\begin{align*}
+    \Dt{}m &= \int_V \Dt{} \rho \; \dev V \\
+    &= \int_V \left(\partt{}\rho + v\nabla \rho\right)\dev V
+\end{align*}
+Hence since we have that $\nabla v = 0$ from \autoref{A:dv0} we can add $\rho\nabla v = 0$ to the integral to get:
+$$\Dt{}m = \left(\int_V \partt{}\rho + \nabla(\rho v)\right)\dev V$$
+
+\subsubsection{Momentum Conservation (Navier–Stokes)}
+Cauchy Momentum Equation (Conservation):
+$$\partt{}(\rho v) + \nabla\cdot (P + \rho vv) = f + \dot{m}v$$
+
+Derivation:
+
+$$F = \partt{p}$$
+We split the aggregated force to be the force on the body, and the force on the surface:
+$$F = F_m + F_s$$
+We set $\text{d}V = \text{d}x\text{d}y\text{d}z$ from now on. Then the force on the body of the particle is: \todo{Why physicaly}
+$$F_s = -(\nabla\cdot P)\text{d}V$$
+The force on the body is simply the force given the acceleration of the particle multiplied by the mass (Newton's second law):
+$$F_m = f\rho \text{d}V$$
+
+Hence we know from Newton's second law that the momentum is: 
+$$\xi = v m = v \rho \text{d} V$$
+
+And we derive:
+$$\frac{\text{d} v}{\text{d} t}\rho \text{d}V = \frac{\text{d} \xi}{\text{d} t} = F = F_m + F_s$$
+$$\frac{\text{d} v}{\text{d} t}\rho \; \cancel{\text{d}V} = -(\nabla\cdot P) \cancel{\text{d} V} + a_f\rho\; \cancel{\text{d}V}$$
+
+And we have that $\dt{v} = \partt{v} + v \cdot\nabla v$ (material derivative). And $f = a_f\rho$
+
+$$\rho \partt{v} + \rho v\cdot \nabla v + \nabla \cdot P = f$$
+
+Missing $\partt{\rho} v + \nabla(\rho v)\cdot v$ ????? \todo{Poul, jeg har et problem med hvordan jeg får lavet et skift af variable her}
+
+$$\rho\frac{\text{D} v}{\text{D} t} + \nabla\cdot P = f \implies \partt{}(\rho v) + \nabla \cdot P + \nabla\cdot(\rho vv) = f$$
+
+\subsubsection{Energy conservation (1st law of Thermodinamics)}
+$$\partt{}\rho\left(e + \frac{1}{2}|v|^2\right) + \nabla\cdot \left(\rho v\left(e + \frac{1}{2}|v|^2\right)\right) = -\nabla\cdot q -\nabla\cdot (p v) + \nabla \cdot (\tau \cdot v) + f \cdot v$$
+
+Derivation:
+the first law of thermodynamics takes the following form:
+$$
+\partt{E_t} + \nabla\cdot(E_t\cdot v) = -\nabla\cdot q - \nabla\cdot(P v)$$
+$$= -\nabla\cdot q -\nabla\cdot (p\cdot v) + \nabla \cdot (\tau \cdot v)$$
+And we have that the total energy is the sum of energies (Kinetic, External force (gravitational), and potential) multiplied by the density:
+$$E_t = \rho(e + \frac{1}{2}|v|^2) - f x$$
+$$\partt{E_t} + \nabla\cdot(E_t\cdot v) =\partt{}\rho\left(e + \frac{1}{2}|v|^2\right) + \nabla\cdot\left(\rho v\left( e + \frac{1}{2}|v|^2\right)\right) - \underbrace{\partt{x}}_{v} f - \underbrace{\nabla\cdot(fx\cdot v)}_{=0\;\; ???}$$
+
+\todo{Check $=0$}
+
+Fourier's law:
+$$q = -K_h\nabla T$$
+
+\subsubsection{Entropy}
+$$\rho T \left(\partt{s} + v\cdot \nabla s\right) = - \nabla\cdot q + \tau : \nabla v$$
+
+Derivation:
+
+Fundamental law of thermodynamics:
+$$T ds = de + p d\left(\rho^{-1}\right)$$
+
+Combination of above, energy conservation and momentum conservation\todo{Derive}
+
+Leads us to the entropy of a fluid particle remains constant:
+$$\partt{s} + v\nabla s = 0$$
+
+From boek: \\
+\textit{Except for regions near walls this approximation will appear to be quite reasonable for most of the applications considered. If initially the entropy is equal to a constant value s0 throughout the fluid, it
+retains this value, and we have simply a flow of uniform and constant entropy s = s0. Note that some
+authors define this type of flow isentropic.}
+
+\todo{boek from eq. 1.10-1.16}
+
+\end{document}

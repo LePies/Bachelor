@@ -1,0 +1,59 @@
+\documentclass[main.tex]{subfiles}
+\graphicspath{{\subfix{../pictures/}}}
+\begin{document}
+\subsection{Wave Properties}
+
+\subsubsection{Basic properties}
+Human Ear can hear from $20 \Hz \leq \freq \leq 20\e{3} \Hz$
+
+Sound Power Level (dB):
+\begin{equation}
+    \text{PWL} = 10\log_{10}\left(\frac{\text{Power}}{10^{-12}\W}\right)
+    \label{eq:PWL}
+\end{equation}
+
+Sound Pressure Level:
+\begin{equation}
+    \text{SPL} = 20\log_{10}\left(\frac{p'_{rms}}{p_{ref}}\right)
+    \label{eq:SPL}  
+\end{equation}
+
+$p'_{rms}$ is the root mean square of pressure fluctuation $p'$ and $p_{ref} = 2\e{-4}\text{Pa}$ in air. and $10^{-6}$ in other media
+
+Intensity Level:
+\begin{equation}
+    \text{IL} = 10\log_{10}\left(\frac{I}{10^{-12}\frac{\W}{\m^2}}\right) 
+    \label{eq:IL}
+\end{equation}
+
+Intensity:
+\begin{equation}
+    I = \frac{p_{rms}'^2}{\rho_0c_0}
+    \label{eq:Intesity}
+\end{equation}
+$\rho_0 c_0 = 4\e{2}\frac{\kg}{\m^2 \s}$ \todo{why?}
+
+Relative Density fluctuation:
+\begin{equation}
+    \frac{\rho'}{\rho_0} = \frac{1}{\rho_0 c_0^2}p' = \frac{1}{\rho_0}\left(\pati{\rho}{p}\right)p'
+    \label{eq: Density fluctuation}
+\end{equation}
+
+Particle Velocity:
+\begin{align}
+    &u' = \frac{p'}{\rho_0 c_0} \label{eq:part_velo}\\
+    \iff &\frac{u'}{c_0} = \frac{\rho'}{\rho_0} \nonumber
+\end{align}
+
+Circular wave frequency And Amplitude:
+\begin{align}
+    \omega &= 2\pi \freq \label{eq:circ_freq}\\
+    \delta &= \frac{|u'|}{\omega} \label{eq:amplitude}
+\end{align}
+
+Wavelength:
+\begin{equation}
+    \lambda = \frac{c_0}{\freq}
+\end{equation}
+
+\end{document}
