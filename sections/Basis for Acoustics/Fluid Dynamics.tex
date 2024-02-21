@@ -15,6 +15,8 @@ Constitutive equation:
     \label{eq:bernoulli}
 \end{equation}
 
+\cite{rienstra_introduction_nodate}
+
 Derivation
 We have the density is of a particle:
 $$\rho = \frac{\Delta m}{\Delta V}$$
@@ -27,17 +29,20 @@ Hence we have the following:
 \begin{align*}
     m = \int_V \rho \;\dev V
 \end{align*}
-And from this, we can apply the following:
+From this, we can apply the following:
 \begin{align*}
     \Dt{}m &= \int_V \Dt{} \rho \; \dev V \\
     &= \int_V \left(\partt{}\rho + v\nabla \rho\right)\dev V
 \end{align*}
 Hence since we have that $\nabla v = 0$ from \autoref{A:dv0} we can add $\rho\nabla v = 0$ to the integral to get:
-$$\Dt{}m = \left(\int_V \partt{}\rho + \nabla(\rho v)\right)\dev V$$
+$$\int_{V}\frac{\text{d}}{\text{d}V}\Dt{} m = \Dt{}m = \int_V \left(\partt{}\rho + \nabla(\rho v)\right)\dev V$$
 
 \subsubsection{Momentum Conservation (Navier–Stokes)}
 Cauchy Momentum Equation (Conservation):
-$$\partt{}(\rho v) + \nabla\cdot (P + \rho vv) = f + \dot{m}v$$
+\begin{equation}
+    \partt{}(\rho v) + \nabla\cdot (P + \rho vv) = f + \dot{m}v
+    \label{eq:Nav-Stok}
+\end{equation}
 
 Derivation:
 
@@ -65,7 +70,11 @@ Missing $\partt{\rho} v + \nabla(\rho v)\cdot v$ ????? \todo{Poul, jeg har et pr
 $$\rho\frac{\text{D} v}{\text{D} t} + \nabla\cdot P = f \implies \partt{}(\rho v) + \nabla \cdot P + \nabla\cdot(\rho vv) = f$$
 
 \subsubsection{Energy conservation (1st law of Thermodinamics)}
-$$\partt{}\rho\left(e + \frac{1}{2}|v|^2\right) + \nabla\cdot \left(\rho v\left(e + \frac{1}{2}|v|^2\right)\right) = -\nabla\cdot q -\nabla\cdot (p v) + \nabla \cdot (\tau \cdot v) + f \cdot v$$
+
+\begin{equation}
+    \partt{}\rho\left(e + \frac{1}{2}|v|^2\right) + \nabla\cdot \left(\rho v\left(e + \frac{1}{2}|v|^2\right)\right) = -\nabla\cdot q -\nabla\cdot (p v) + \nabla \cdot (\tau \cdot v) + f \cdot v
+    \label{eq:thm1}
+\end{equation}
 
 Derivation:
 the first law of thermodynamics takes the following form:
@@ -86,15 +95,15 @@ $$\rho T \left(\partt{s} + v\cdot \nabla s\right) = - \nabla\cdot q + \tau : \na
 
 Derivation:
 
-Fundamental law of thermodynamics:
+The fundamental law of thermodynamics:
 $$T ds = de + p d\left(\rho^{-1}\right)$$
 
 Combination of above, energy conservation and momentum conservation\todo{Derive}
 
-Leads us to the entropy of a fluid particle remains constant:
+This leads us to the entropy of a fluid particle remains constant:
 $$\partt{s} + v\nabla s = 0$$
 
-From boek: \\
+From \cite{rienstra_introduction_nodate}: \\
 \textit{Except for regions near walls this approximation will appear to be quite reasonable for most of the applications considered. If initially the entropy is equal to a constant value s0 throughout the fluid, it
 retains this value, and we have simply a flow of uniform and constant entropy s = s0. Note that some
 authors define this type of flow isentropic.}

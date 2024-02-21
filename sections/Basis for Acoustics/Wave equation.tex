@@ -1,59 +1,48 @@
 \documentclass[main.tex]{subfiles}
 \graphicspath{{\subfix{../pictures/}}}
 \begin{document}
-\subsection{Wave Properties}
+\subsubsection{Wave Equation}
 
-\subsubsection{Basic properties}
-Human Ear can hear from $20 \Hz \leq \freq \leq 20\e{3} \Hz$
+\todo{Assumbtion, Definitions, and argumentation}
 
-Sound Power Level (dB):
+We have that \autoref{eq:bernoulli} gets to be:
+
 \begin{equation}
-    \text{PWL} = 10\log_{10}\left(\frac{\text{Power}}{10^{-12}\W}\right)
-    \label{eq:PWL}
+    \partt{\rho'} + \rho_0\nabla \cdot v' = 0
+    \label{eq:mass_cons}
 \end{equation}
 
-Sound Pressure Level:
+And \autoref{eq:Nav-Stok} becomes:
+
 \begin{equation}
-    \text{SPL} = 20\log_{10}\left(\frac{p'_{rms}}{p_{ref}}\right)
-    \label{eq:SPL}  
+    \rho_0 \partt{v'} + \nabla \cdot p' = 0
+    \label{eq:moment_cons}
 \end{equation}
 
-$p'_{rms}$ is the root mean square of pressure fluctuation $p'$ and $p_{ref} = 2\e{-4}\text{Pa}$ in air. and $10^{-6}$ in other media
+And lastly \autoref{eq:thm1} will be:
 
-Intensity Level:
 \begin{equation}
-    \text{IL} = 10\log_{10}\left(\frac{I}{10^{-12}\frac{\W}{\m^2}}\right) 
-    \label{eq:IL}
+    \partt{s'} = 0
+    \label{eq:energy_cons}
 \end{equation}
 
-Intensity:
-\begin{equation}
-    I = \frac{p_{rms}'^2}{\rho_0c_0}
-    \label{eq:Intesity}
-\end{equation}
-$\rho_0 c_0 = 4\e{2}\frac{\kg}{\m^2 \s}$ \todo{why?}
+And we also have from ???\todo{ref} that:
 
-Relative Density fluctuation:
 \begin{equation}
-    \frac{\rho'}{\rho_0} = \frac{1}{\rho_0 c_0^2}p' = \frac{1}{\rho_0}\left(\pati{\rho}{p}\right)p'
-    \label{eq: Density fluctuation}
+    p' = c_0^2\rho'
+    \label{eq:p_to_rho}
 \end{equation}
 
-Particle Velocity:
+Now by taking the time derivative of \autoref{eq:mass_cons} and the divergence of the \autoref{eq:moment_cons} we get the following:
+
+$$\partti{\rho'}{2} + \cancel{\rho_0 \partt{} \nabla v'} - \cancel{\rho_0 \partt{} \nabla v'} - \nabla^2 p' = 0$$
+
+Now by using \autoref{eq:p_to_rho} we can obtain:
+
 \begin{align}
-    &u' = \frac{p'}{\rho_0 c_0} \label{eq:part_velo}\\
-    \iff &\frac{u'}{c_0} = \frac{\rho'}{\rho_0} \nonumber
+    \partti{p'}{2} - c_0^2\Delta p' = 0 \label{eq:wave_p} \\
+    \text{Or} \\
+    \partti{\rho'}{2} - c_0^2\Delta \rho' = 0 \label{eq:wave_\rho}
 \end{align}
-
-Circular wave frequency And Amplitude:
-\begin{align}
-    \omega &= 2\pi \freq \label{eq:circ_freq}\\
-    \delta &= \frac{|u'|}{\omega} \label{eq:amplitude}
-\end{align}
-
-Wavelength:
-\begin{equation}
-    \lambda = \frac{c_0}{\freq}
-\end{equation}
 
 \end{document}

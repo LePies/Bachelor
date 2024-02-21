@@ -66,15 +66,7 @@
 {\end{itemize}%
 \unskip\computecountitems\ifnumcomp{\previtemizecount}{>}{3}{\end{multicols}}{}}
 
-\newcommand{\Dt}[1]{
-    \frac{\text{D} #1}{\text{D} t}
-}
-\newcommand{\dt}[1]{
-    \frac{\text{d} #1}{\text{d} t}
-}
-\newcommand{\partt}[1]{
-    \frac{\partial #1}{\partial t}
-}
+
 % SYMBOLS
 \newcommand{\freq}[0]{\mathfrak{f}}
 
@@ -90,4 +82,18 @@
 \newcommand{\e}[1]{\cdot 10^{#1}}
 \newcommand{\eye}[0]{\mathbf{I}}
 \newcommand{\dev}[0]{\text{d}}
-\newcommand{\pati}[2]{\frac{\partial #1}{\partial #2}}
+\newcommand{\pati}[2]{
+    \frac{\partial #1}{\partial #2}
+}
+\newcommand{\Dt}[1]{
+    \frac{\text{D} #1}{\text{D} t}
+}
+\newcommand{\dt}[1]{
+    \frac{\text{d} #1}{\text{d} t}
+}
+\newcommand{\partt}[1]{
+    \frac{\partial #1}{\partial t}
+}
+\newcommand{\partti}[2]{
+    \frac{\partial^{#2} #1}{\partial^{#2} t}
+}
